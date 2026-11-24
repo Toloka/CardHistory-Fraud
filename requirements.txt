@@ -1,0 +1,9 @@
+# The versions of the published build. The generator gives exactly the published dataset with these numpy / polars / pyarrow
+# versions (numpy's random streams can change between versions); the other packages are what the models and checks ran with.
+numpy==2.5.3
+polars==1.36.1
+pyarrow==26.0.0
+pandas==3.0.5          # XGBoost features
+scikit-learn==1.9.1    # validation metric while training
+torch==2.15.0          # transformers (CPU or CUDA build)
+xgboost==3.4.1

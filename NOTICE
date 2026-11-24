@@ -1,0 +1,24 @@
+CardHistory-Fraud
+Copyright 2026 Toloka AI BV
+
+This product includes data and software derived from IBM's TabFormer (https://github.com/IBM/TabFormer), which IBM released
+under the Apache License, Version 2.0. It is not affiliated with or endorsed by IBM.
+
+Changes to IBM's data. The dataset keeps the transactions of IBM's card_transaction.v1.csv (in data/credit_card/transactions.tgz
+of IBM's repository) with their values and labels, and changes them as follows (the `origin` column marks every row):
+  - added: 636,338 transactions (fraud episodes, legit trips, subscriptions and the bank's reaction to fraud)   origin = added
+  - a trip changed the place of 274,110 of IBM's transactions                                                  origin = ibm_moved_by_trip
+  - 5,383 of IBM's transactions were moved later because the traveller was not back yet                       origin = ibm_retimed_after_trip
+  - 14,105 of IBM's transactions were declined because the card was blocked after fraud                        origin = ibm_declined_by_bank
+  - 85,938 of IBM's transactions were removed: they fell while a blocked card waited for its replacement
+  - format: one table in parquet files; Year, Month, Day and Time combined into one timestamp; Amount as a number; the card id is
+    User * 10 + Card; "Merchant Name" is called merchant_id; the Zip column is dropped; columns added: scenario_id, scenario,
+    origin, split, episode, is_probe.
+The generator (generator/build.py and generator/make_dataset.py) makes these changes from IBM's file with fixed random seeds.
+
+City coordinates. generator/city_geo.json holds a latitude, longitude and time zone for each merchant city in IBM's data:
+  - cities outside the US: from GeoNames (https://www.geonames.org), licensed under Creative Commons Attribution 4.0
+    (https://creativecommons.org/licenses/by/4.0/), read through the geonamescache package; the coordinates were selected and
+    rounded (generator/build_city_geo.py shows how);
+  - US cities: the median of the city's ZIP-code centres in the zipcodes package (MIT licence), whose data come from public
+    sources (USPS, GeoNames, unitedstateszipcodes.org).
