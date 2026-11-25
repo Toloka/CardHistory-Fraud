@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use CardHistory-Fraud, please cite it as below."
+title: "CardHistory-Fraud: card fraud that hides in the history"
+type: dataset
+authors:
+  - family-names: Tica
+    given-names: Igor
+  - family-names: Zubkov
+    given-names: Oleg
+date-released: "2026-11-24"
+url: "https://huggingface.co/datasets/toloka/CardHistory-Fraud"
+repository-code: "https://github.com/Toloka/CardHistory-Fraud"
+license: Apache-2.0
+keywords:
+  - fraud detection
+  - card transactions
+  - synthetic data
+  - benchmark
+  - knowledge distillation
