@@ -154,6 +154,11 @@ Copyright 2026 Toloka AI BV. The code is released under the Apache License 2.0 (
 under the Apache License 2.0, and is released under the same licence. `NOTICE` lists what we changed in IBM's data and the sources
 of the city coordinates (GeoNames, CC BY 4.0). This work is not affiliated with or endorsed by IBM.
 
+## Authors
+
+- Igor Tica: generator, models, experiments
+- Oleg Zubkov: project lead, expert review design and analysis, writing
+
 ## Citation
 
 ```bibtex
@@ -161,7 +166,8 @@ of the city coordinates (GeoNames, CC BY 4.0). This work is not affiliated with 
   title  = {CardHistory-Fraud: card fraud that hides in the history},
   author = {Tica, Igor and Zubkov, Oleg},
   year   = {2026},
-  note   = {Toloka}
+  note   = {Toloka},
+  url    = {https://huggingface.co/datasets/toloka/CardHistory-Fraud}
 }
 ```
 
